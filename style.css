@@ -1,0 +1,191 @@
+:root {
+    --bg-dark: #0f172a;
+    --panel-bg: rgba(30, 41, 59, 0.7);
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --gold: #fbbf24;
+    --gold-hover: #f59e0b;
+    --text-light: #f8fafc;
+    
+    /* Ludo Colors */
+    --ludo-red: #ef4444;
+    --ludo-green: #22c55e;
+    --ludo-yellow: #eab308;
+    --ludo-blue: #3b82f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wallet-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.profile-pic {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 250px;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: transparent;
+    color: var(--text-light);
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-btn:hover, .menu-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--gold);
+}
+
+.game-arena {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Buttons */
+.bet-btn, .action-btn {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.bet-btn:hover, .action-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+.gold-btn {
+    background: var(--gold);
+    color: var(--bg-dark);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+}
+.gold-btn:hover { background: var(--gold-hover); }
+
+/* Match UI */
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.player-tag { background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 10px; }
+.pot-display { font-size: 1.2rem; font-weight: 700; color: var(--gold); }
+
+#dice-display {
+    font-size: 4rem;
+    margin: 10px;
+    transition: transform 0.1s; /* For rolling animation */
+}
+
+.test-controls button {
+    background: transparent; border: 1px solid var(--text-light); color: var(--text-light);
+    padding: 5px 10px; margin-top: 15px; cursor: pointer; border-radius: 5px;
+}
+
+/* Ludo Board Frame */
+.ludo-board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border: 8px solid #334155;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.cell { border: 1px solid rgba(0,0,0,0.05); }
+.red-base { background-color: var(--ludo-red); }
+.green-base { background-color: var(--ludo-green); }
+.yellow-base { background-color: var(--ludo-yellow); }
+.blue-base { background-color: var(--ludo-blue); }
